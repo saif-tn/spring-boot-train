@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<!-- using thymeleaf templating -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+<head>
+<meta charset="ISO-8859-1">
+<title>Liste des formations</title>
+</head>
+<body>
+<h1>Liste des formations</h1>
+<table border="1" class="table_f">
+	<tr>
+		<td>ID</td>
+		<td>Formation</td>
+		<td>Nbr Heures</td>
+		<td>Langue</td>
+	</tr>
+	<tr th:each="formation : ${formtions}">
+		<td th:text="${formation.id}"></td>
+		<td th:text="${formation.lib}"></td>
+		<td th:text="${formation.nbHeures}"></td>
+		<td th:text="${formation.lang}"></td>
+	</tr>
+</table>
+</body>
+</html>

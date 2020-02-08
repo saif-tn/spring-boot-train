@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link  rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}"/>
+</head>
+<body>
+  <div class="container-fluid">
+    <!-- Control the column width, and how they should appear on different devices -->
+    <div class="row">
+      <div class="col-sm-3 col-md-6 col-xs-8" style="background-color:yellow;">
+       <h1>Infos Perso:</h1>
+       <h3>Nom:<span th:text =${nom}></span></h3>
+       <h3>Penom:<span th:text =${prenom}></span></h3>
+       <h3>Email:<span th:text =${email}></span></h3>
+       <h3>Profession:<span th:text =${profession}></span></h3>
+      </div>
+      <div class="col-sm-9 col-md-6  col-xs-4" style="background-color:orange;">
+      
+      <form>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+		    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-group form-check">
+		    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+		    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+		  </div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+      
+      </div>
+    </div>
+    </div>
+    
+    
+    
+   <div class="container-fluid">
+    <!-- Control the column width, and how they should appear on different devices -->
+    <div class="row">
+      <div class="col-sm-3 col-md-6 col-xs-7" style="background-color:grey;">
+       <h1>Les formations:</h1>
+       <ul th:each ="formation : ${formations}">
+       <li th:text=${formation}></li>
+       </ul>
+      
+      </div>
+      <div class="col-sm-9 col-md-6 col-xs-5" style="background-color:green;">
+ 		<h1>Diplomes & Experiences:</h1>
+ 		
+ 		<ul th:each ="diplome : ${diplomes}">
+       <li th:text=${diplome}></li>
+       </ul>
+       
+      </div>
+    </div>
+    </div>
+    
+</body>
+</html>

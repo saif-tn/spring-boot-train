@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Homepage</h1>
+<p  th:text="${slogan}"></p>
+<hr>
+<h2 th:text="'url param 1 = ' + ${param1}"></h2>
+<h2 th:text="'url param 2 = ' + ${param2}"></h2>
+<hr>
+<p>Liste des voirtures (arrayList) :</p>
+<table>
+<tr th:each="car : ${cars}">
+	<td th:text="${car}"></td>
+</tr>
+</table>
+</body>
+</html>

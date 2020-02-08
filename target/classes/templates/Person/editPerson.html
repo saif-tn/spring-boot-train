@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymleaf.org/">
+<link href="../../static/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" th:href="@{/Bootstrap/css/bootstrap.css}"/>
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit person</title>
+</head>
+ <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Persons</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/Persons/personList}">Person List</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  th:href="@{/Persons/addPerson}">Add person</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<main role="main">
+  <div style="height:80px"></div>
+  <div class="container">
+    <!-- Example row of columns -->
+	    <div class="row">
+		<h1>Add Person</h1>
+		<hr>
+		<div class="container">
+			<form class="form" th:action="@{/Persons/editPerson/{id}(id=${personForm.id})}" th:object="${personForm}" method="POST">
+		         <div class="row">
+		          <div class="col-md-4 mb-3">
+		            <label for="id">ID</label>
+		            <input type="text" th:field="*{id}" class="form-control" placeholder="" value="" required="">
+		            <div class="invalid-feedback">
+		              ID is required.
+		            </div>
+		          </div>
+		          <div class="col-md-4 mb-3">
+		            <label for="firstName">First name</label>
+		            <input type="text" th:field="*{firstName}" class="form-control" placeholder="" value="" required="">
+		            <div class="invalid-feedback">
+		              Valid first name is required.
+		            </div>
+		          </div>
+		          <div class="col-md-4 mb-3">
+		            <label for="lastName">Last name</label>
+		            <input type="text" th:field="*{lastName}" class="form-control" placeholder="" value="" required="">
+		            <div class="invalid-feedback">
+		              Valid last name is required.
+		            </div>
+		          </div>
+		        </div>
+		         <input class="btn btn-primary" type="submit" value="Create" />
+		         
+	         </form>
+    	</div>   
+      <br/>
+       
+      <!-- Check if errorMessage is not null and not empty -->
+       
+      <div th:if="${errorMessage}" th:text="${errorMessage}"
+         style="color:red;font-style:italic;">
+         ...
+      </div>
+		
+		
+	</div>
+  </div>
+</main>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"  th:src="@{/bootstrap/js/bootstrap.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>
